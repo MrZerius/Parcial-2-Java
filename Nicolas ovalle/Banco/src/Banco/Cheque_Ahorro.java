@@ -13,6 +13,7 @@ public class Cheque_Ahorro {
 	 private static int [] saldo = new int[12];
 	 private static int [] deposito = new int[12];
 	 private static int [] retiro = new int[12]; 
+	private static String[] fecha = new String[25];
 	
 	 static Main m = new Main();
 
@@ -20,7 +21,7 @@ public class Cheque_Ahorro {
 	 
 	public Cheque_Ahorro() {
 		nombre[0] = "";
-
+		fecha[0] = "";
 		int cuenta[] = new int[n];
 		int saldo[] = new int[n];
 		int deposito[] = new int[n];
@@ -92,6 +93,9 @@ public class Cheque_Ahorro {
 				System.out.println(n+" Digite el saldo con el que se abrira la cuenta: ");
 				saldo[n] = teclado.nextInt();
 				System.out.println("\n");
+				System.out.println(n+" Digite la fecha de vencimiento del a cuenta: ");
+				fecha[n] = teclado.next();
+				System.out.println("\n");
 			
 			}
 			
@@ -130,21 +134,33 @@ public class Cheque_Ahorro {
 			switch(opcion) {
 			
 			case 1: 
+				System.out.println("Digite el id de la cuenta ");	
+				i = teclado.nextInt();
 				System.out.println("Digite la cantidad depositada ");
 				deposito = teclado.nextInt();
 				System.out.println("\n");
 				
 				saldo[n] = saldo1;
 				saldo[n] = saldo1 + deposito;
+					
+					System.out.println(" El nuevo saldo es" +saldo[n] );
 			break;
 			
 			case 2: 
+				System.out.println("Digite el id de la cuenta ");	
+				i = teclado.nextInt();	
 				System.out.println("Digite la cantidad extraida ");
 				retiro = teclado.nextInt();
 				System.out.println("\n");
-				
+				if(saldo[n] > deposito){
 				saldo[n] = saldo1;
 				saldo[n] = saldo1 - retiro;
+					
+					System.out.println(" El nuevo saldo es : " + saldo[n] )
+				}
+					
+					else {
+						System.out.println(" El saldo es insufisiente para realizar el retiro ")
 			
 			}
 		
